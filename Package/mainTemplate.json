@@ -109,7 +109,7 @@
     },
     "connector1-name": {
       "type": "string",
-      "defaultValue": "734830d1-993a-44cd-a77c-a20d6541dcc7"
+      "defaultValue": "555ae997-3bc9-4118-8474-8b000a51e3b9"
     }
   },
   "variables": {
@@ -2407,7 +2407,7 @@
     {
       "properties": {
         "provisioningState": "Succeeded",
-        "state": "Disabled",
+        "state": "Enabled",
         "definition": {
           "$schema": "https://schema.@{variables('azureManagementUrl')}/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
           "contentVersion": "1.0.0.0",
@@ -2492,7 +2492,7 @@
                   "type": "SetVariable",
                   "inputs": {
                     "name": "ObjectId",
-                    "value": "@{body('Parse_JSON')?['ClusterId'][0]}"
+                    "value": "@{body('Parse_JSON')?['ObjectId'][0]}"
                   }
                 },
                 "Set_ObjectName": {
