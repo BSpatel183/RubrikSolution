@@ -25,6 +25,13 @@
         "PlaybookName":  {
             "defaultValue":  "RubrikRansomwareDiscoveryAndVMRecovery",
             "type":  "string"
+        },
+        "Rubrik Connector name": {
+            "defaultValue": "RubrikCustomConnector",
+            "type": "String",
+            "metadata": {
+                "description": "Rubrik Custom Connector name"
+            }
         }
     },
     "variables":  {
@@ -36,7 +43,7 @@
         {
             "properties":  {
                 "provisioningState":  "Succeeded",
-                "state":  "Disabled",
+                "state":  "Enabled",
                 "definition":  {
                     "$schema":  "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
                     "contentVersion":  "1.0.0.0",
@@ -714,7 +721,7 @@
                                                             "host":  {
                                                                 "triggerName":  "manual",
                                                                 "workflow":  {
-                                                                    "id":  "/subscriptions/ec3e5f16-67b5-40aa-9289-23311c95451c/resourceGroups/RubrikIntegration_22926/providers/Microsoft.Logic/workflows/RubrikPollAsyncResult"
+                                                                    "id":  "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Logic/workflows/RubrikPollAsyncResult')]"
                                                                 }
                                                             }
                                                         }
@@ -1303,7 +1310,7 @@
                                                                         "host":  {
                                                                             "triggerName":  "manual",
                                                                             "workflow":  {
-                                                                                "id":  "/subscriptions/ec3e5f16-67b5-40aa-9289-23311c95451c/resourceGroups/RubrikIntegration_22926/providers/Microsoft.Logic/workflows/RubrikPollAsyncResult"
+                                                                                "id":  "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Logic/workflows/RubrikPollAsyncResult')]"
                                                                             }
                                                                         }
                                                                     }
@@ -3126,7 +3133,7 @@
                                         "type":  "Response",
                                         "kind":  "Http",
                                         "inputs":  {
-                                            "body":  "The object associated with the anomaly incident is not a Virtual Machine. Hence, exiting…",
+                                            "body":  "The object associated with the anomaly incident is not a Virtual Machine. Hence, exitingï¿½",
                                             "statusCode":  400
                                         }
                                     },
@@ -3139,7 +3146,7 @@
                                         "type":  "Terminate",
                                         "inputs":  {
                                             "runError":  {
-                                                "message":  "The object associated with the anomaly incident is not a Virtual Machine. Hence, exiting…"
+                                                "message":  "The object associated with the anomaly incident is not a Virtual Machine. Hence, exitingï¿½"
                                             },
                                             "runStatus":  "Failed"
                                         }
@@ -3742,7 +3749,7 @@
                                 "host":  {
                                     "triggerName":  "manual",
                                     "workflow":  {
-                                        "id":  "/subscriptions/ec3e5f16-67b5-40aa-9289-23311c95451c/resourceGroups/RubrikIntegration_22926/providers/Microsoft.Logic/workflows/RubrikIOCScan"
+                                        "id":  "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Logic/workflows/RubrikIOCScan')]"
                                     }
                                 }
                             }
@@ -3803,7 +3810,7 @@
                             "RubrikCustomConnector":  {
                                 "connectionId":  "[resourceId('Microsoft.Web/connections', variables('RubrikcustomconnectorConnectionName'))]",
                                 "connectionName":  "[variables('RubrikcustomconnectorConnectionName')]",
-                                "id":  "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/customApis/Rubrikcustomconnector')]"
+                                "id":  "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/customApis/', parameters('Rubrik Connector name'))]"
                             },
                             "keyvault":  {
                                 "connectionId":  "[resourceId('Microsoft.Web/connections', variables('KeyvaultConnectionName'))]",
@@ -3847,7 +3854,7 @@
                 "customParameterValues":  {
                 },
                 "api":  {
-                    "id":  "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/customApis/Rubrikcustomconnector')]"
+                    "id":  "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/customApis/', parameters('Rubrik Connector name'))]"
                 }
             }
         },

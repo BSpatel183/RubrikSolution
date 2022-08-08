@@ -166,6 +166,18 @@
                   "regex": "[a-z0-9A-Z]{1,256}$",
                   "validationMessage": "Please enter a playbook resource name"
                 }
+              },
+              {
+                "name": "playbook2-Rubrik Connector name",
+                "type": "Microsoft.Common.TextBox",
+                "label": "Rubrik  Connector name",
+                "defaultValue": "RubrikCustomConnector",
+                "toolTip": "Please enter Rubrik  Connector name",
+                "constraints": {
+                  "required": true,
+                  "regex": "[a-z0-9A-Z]{1,256}$",
+                  "validationMessage": "Please enter the Rubrik  Connector name"
+                }
               }
             ]
           },
@@ -230,6 +242,18 @@
                   "regex": "[a-z0-9A-Z]{1,256}$",
                   "validationMessage": "Please enter a playbook resource name"
                 }
+              },
+              {
+                "name": "playbook4-Rubrik Connector name",
+                "type": "Microsoft.Common.TextBox",
+                "label": "Rubrik  Connector name",
+                "defaultValue": "RubrikCustomConnector",
+                "toolTip": "Please enter Rubrik  Connector name",
+                "constraints": {
+                  "required": true,
+                  "regex": "[a-z0-9A-Z]{1,256}$",
+                  "validationMessage": "Please enter the Rubrik  Connector name"
+                }
               }
             ]
           },
@@ -282,6 +306,18 @@
                   "regex": "[a-z0-9A-Z]{1,256}$",
                   "validationMessage": "Please enter a playbook resource name"
                 }
+              },
+              {
+                "name": "playbook6-Rubrik Connector name",
+                "type": "Microsoft.Common.TextBox",
+                "label": "Rubrik  Connector name",
+                "defaultValue": "RubrikCustomConnector",
+                "toolTip": "Please enter Rubrik  Connector name",
+                "constraints": {
+                  "required": true,
+                  "regex": "[a-z0-9A-Z]{1,256}$",
+                  "validationMessage": "Please enter the Rubrik  Connector name"
+                }
               }
             ]
           },
@@ -307,6 +343,18 @@
                   "required": true,
                   "regex": "[a-z0-9A-Z]{1,256}$",
                   "validationMessage": "Please enter a playbook resource name"
+                }
+              },
+              {
+                "name": "playbook7-Rubrik Connector name",
+                "type": "Microsoft.Common.TextBox",
+                "label": "Rubrik  Connector name",
+                "defaultValue": "RubrikCustomConnector",
+                "toolTip": "Please enter Rubrik  Connector name",
+                "constraints": {
+                  "required": true,
+                  "regex": "[a-z0-9A-Z]{1,256}$",
+                  "validationMessage": "Please enter the Rubrik  Connector name"
                 }
               }
             ]
@@ -334,6 +382,18 @@
                   "regex": "[a-z0-9A-Z]{1,256}$",
                   "validationMessage": "Please enter a playbook resource name"
                 }
+              },
+              {
+                "name": "playbook8-Rubrik Connector name",
+                "type": "Microsoft.Common.TextBox",
+                "label": "Rubrik  Connector name",
+                "defaultValue": "RubrikCustomConnector",
+                "toolTip": "Please enter Rubrik  Connector name",
+                "constraints": {
+                  "required": true,
+                  "regex": "[a-z0-9A-Z]{1,256}$",
+                  "validationMessage": "Please enter the Rubrik  Connector name"
+                }
               }
             ]
           },
@@ -360,6 +420,18 @@
                   "regex": "[a-z0-9A-Z]{1,256}$",
                   "validationMessage": "Please enter a playbook resource name"
                 }
+              },
+              {
+                "name": "playbook9-Rubrik Connector name",
+                "type": "Microsoft.Common.TextBox",
+                "label": "Rubrik  Connector name",
+                "defaultValue": "RubrikCustomConnector",
+                "toolTip": "Please enter Rubrik  Connector name",
+                "constraints": {
+                  "required": true,
+                  "regex": "[a-z0-9A-Z]{1,256}$",
+                  "validationMessage": "Please enter the Rubrik  Connector name"
+                }
               }
             ]
           }
@@ -373,14 +445,20 @@
       "playbook1-API Hostname": "[steps('playbooks').playbook1.playbook1-API Hostname]",
       "playbook1-customApis_RubrikCustomConnector_name": "[steps('playbooks').playbook1.playbook1-customApis_RubrikCustomConnector_name]",
       "playbook2-PlaybookName": "[steps('playbooks').playbook2.playbook2-PlaybookName]",
+      "playbook2-Rubrik Connector name": "[steps('playbooks').playbook2.playbook2-Rubrik Connector name]",
       "playbook3-API Hostname": "[steps('playbooks').playbook3.playbook3-API Hostname]",
       "playbook3-PlaybookName": "[steps('playbooks').playbook3.playbook3-PlaybookName]",
       "playbook4-PlaybookName": "[steps('playbooks').playbook4.playbook4-PlaybookName]",
+      "playbook4-Rubrik Connector name": "[steps('playbooks').playbook4.playbook4-Rubrik Connector name]",
       "playbook5-PlaybookName": "[steps('playbooks').playbook5.playbook5-PlaybookName]",
       "playbook6-PlaybookName": "[steps('playbooks').playbook6.playbook6-PlaybookName]",
+      "playbook6-Rubrik Connector name": "[steps('playbooks').playbook6.playbook6-Rubrik Connector name]",
       "playbook7-PlaybookName": "[steps('playbooks').playbook7.playbook7-PlaybookName]",
+      "playbook7-Rubrik Connector name": "[steps('playbooks').playbook7.playbook7-Rubrik Connector name]",
       "playbook8-PlaybookName": "[steps('playbooks').playbook8.playbook8-PlaybookName]",
-      "playbook9-PlaybookName": "[steps('playbooks').playbook9.playbook9-PlaybookName]"
+      "playbook8-Rubrik Connector name": "[steps('playbooks').playbook8.playbook8-Rubrik Connector name]",
+      "playbook9-PlaybookName": "[steps('playbooks').playbook9.playbook9-PlaybookName]",
+      "playbook9-Rubrik Connector name": "[steps('playbooks').playbook9.playbook9-Rubrik Connector name]"
     }
   }
 }

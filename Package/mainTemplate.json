@@ -46,6 +46,11 @@
         "description": "Resource name for the logic app playbook.  No spaces are allowed"
       }
     },
+    "playbook2-Rubrik Connector name": {
+      "defaultValue": "RubrikCustomConnector",
+      "type": "string",
+      "minLength": 1
+    },
     "playbook3-API Hostname": {
       "defaultValue": "rubrik-rcf-2512.my.rubrik.com",
       "type": "string",
@@ -67,6 +72,11 @@
         "description": "Resource name for the logic app playbook.  No spaces are allowed"
       }
     },
+    "playbook4-Rubrik Connector name": {
+      "defaultValue": "RubrikCustomConnector",
+      "type": "string",
+      "minLength": 1
+    },
     "playbook5-PlaybookName": {
       "defaultValue": "RubrikFilesetRansomwareDiscovery",
       "type": "string",
@@ -83,6 +93,11 @@
         "description": "Resource name for the logic app playbook.  No spaces are allowed"
       }
     },
+    "playbook6-Rubrik Connector name": {
+      "defaultValue": "RubrikCustomConnector",
+      "type": "string",
+      "minLength": 1
+    },
     "playbook7-PlaybookName": {
       "defaultValue": "RubrikPollAsyncResult",
       "type": "string",
@@ -90,6 +105,11 @@
       "metadata": {
         "description": "Resource name for the logic app playbook.  No spaces are allowed"
       }
+    },
+    "playbook7-Rubrik Connector name": {
+      "defaultValue": "RubrikCustomConnector",
+      "type": "string",
+      "minLength": 1
     },
     "playbook8-PlaybookName": {
       "defaultValue": "RubrikRansomwareDiscoveryAndFileRecovery",
@@ -99,6 +119,11 @@
         "description": "Resource name for the logic app playbook.  No spaces are allowed"
       }
     },
+    "playbook8-Rubrik Connector name": {
+      "defaultValue": "RubrikCustomConnector",
+      "type": "string",
+      "minLength": 1
+    },
     "playbook9-PlaybookName": {
       "defaultValue": "RubrikRansomwareDiscoveryAndVMRecovery",
       "type": "string",
@@ -107,9 +132,14 @@
         "description": "Resource name for the logic app playbook.  No spaces are allowed"
       }
     },
+    "playbook9-Rubrik Connector name": {
+      "defaultValue": "RubrikCustomConnector",
+      "type": "string",
+      "minLength": 1
+    },
     "connector1-name": {
       "type": "string",
-      "defaultValue": "555ae997-3bc9-4118-8474-8b000a51e3b9"
+      "defaultValue": "ef45a891-399a-4580-a2e4-9815c84e7a39"
     }
   },
   "variables": {
@@ -121,7 +151,7 @@
     "_playbook2-Playbooks": "[variables('playbook2-Playbooks')]",
     "playbook2-RubrikcustomconnectorConnectionName": "[concat('Rubrikcustomconnector-', parameters('playbook2-PlaybookName'))]",
     "playbook2-KeyvaultConnectionName": "[concat('Keyvault-', parameters('playbook2-PlaybookName'))]",
-    "playbook-2-connection-2": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', parameters('workspace-location'), '/customApis/Rubrikcustomconnector')]",
+    "playbook-2-connection-2": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/customApis/', parameters('Rubrik Connector name'))]",
     "_playbook-2-connection-2": "[variables('playbook-2-connection-2')]",
     "playbook-2-connection-3": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', parameters('workspace-location'), '/managedApis/Keyvault')]",
     "_playbook-2-connection-3": "[variables('playbook-2-connection-3')]",
@@ -170,7 +200,7 @@
       "type": "Microsoft.Web/customApis",
       "apiVersion": "2016-06-01",
       "name": "[parameters('playbook1-customApis_RubrikCustomConnector_name')]",
-      "location": "eastus",
+      "location": "[parameters('workspace-location')]",
       "properties": {
         "runtimeUrls": [
           "https://logic-apis-eastus.azure-apim.net/apim/d91aaf06af23412da43cf0b057079b4c",
@@ -253,7 +283,7 @@
     {
       "properties": {
         "provisioningState": "Succeeded",
-        "state": "Disabled",
+        "state": "Enabled",
         "definition": {
           "$schema": "https://schema.@{variables('azureManagementUrl')}/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
           "contentVersion": "1.0.0.0",
@@ -2351,7 +2381,7 @@
               "RubrikCustomConnector": {
                 "connectionId": "[resourceId('Microsoft.Web/connections', variables('playbook2-RubrikcustomconnectorConnectionName'))]",
                 "connectionName": "[variables('playbook2-RubrikcustomconnectorConnectionName')]",
-                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', parameters('workspace-location'), '/customApis/Rubrikcustomconnector')]"
+                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/customApis/', parameters('playbook2-Rubrik Connector name'))]"
               },
               "keyvault": {
                 "connectionId": "[resourceId('Microsoft.Web/connections', variables('playbook2-KeyvaultConnectionName'))]",
@@ -2933,7 +2963,7 @@
     {
       "properties": {
         "provisioningState": "Succeeded",
-        "state": "Disabled",
+        "state": "Enabled",
         "definition": {
           "$schema": "https://schema.@{variables('azureManagementUrl')}/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
           "contentVersion": "1.0.0.0",
@@ -5338,7 +5368,7 @@
               "RubrikCustomConnector": {
                 "connectionId": "[resourceId('Microsoft.Web/connections', variables('playbook4-RubrikcustomconnectorConnectionName'))]",
                 "connectionName": "[variables('playbook4-RubrikcustomconnectorConnectionName')]",
-                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', parameters('workspace-location'), '/customApis/Rubrikcustomconnector')]"
+                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/customApis/', parameters('playbook4-Rubrik Connector name'))]"
               },
               "keyvault": {
                 "connectionId": "[resourceId('Microsoft.Web/connections', variables('playbook4-KeyvaultConnectionName'))]",
@@ -5394,7 +5424,7 @@
     {
       "properties": {
         "provisioningState": "Succeeded",
-        "state": "Disabled",
+        "state": "Enabled",
         "definition": {
           "$schema": "https://schema.@{variables('azureManagementUrl')}/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
           "contentVersion": "1.0.0.0",
@@ -5763,7 +5793,7 @@
                 "host": {
                   "triggerName": "manual",
                   "workflow": {
-                    "id": "/subscriptions/ec3e5f16-67b5-40aa-9289-23311c95451c/resourceGroups/RubrikIntegration_22926/providers/Microsoft.Logic/workflows/RubrikIOCScan"
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Logic/workflows/RubrikIOCScan')]"
                   }
                 }
               }
@@ -5877,7 +5907,7 @@
     {
       "properties": {
         "provisioningState": "Succeeded",
-        "state": "Disabled",
+        "state": "Enabled",
         "definition": {
           "$schema": "https://schema.@{variables('azureManagementUrl')}/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
           "contentVersion": "1.0.0.0",
@@ -7629,7 +7659,7 @@
                                 {
                                   "not": {
                                     "equals": [
-                                      "6",
+                                      "@triggerBody()?['TimeDelta']",
                                       "@null"
                                     ]
                                   }
@@ -8139,7 +8169,7 @@
               "RubrikCustomConnector": {
                 "connectionId": "[resourceId('Microsoft.Web/connections', variables('playbook6-RubrikcustomconnectorConnectionName'))]",
                 "connectionName": "[variables('playbook6-RubrikcustomconnectorConnectionName')]",
-                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', parameters('workspace-location'), '/customApis/Rubrikcustomconnector')]"
+                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/customApis/', parameters('playbook6-Rubrik Connector name'))]"
               },
               "keyvault": {
                 "connectionId": "[resourceId('Microsoft.Web/connections', variables('playbook6-KeyvaultConnectionName'))]",
@@ -8861,7 +8891,7 @@
               "RubrikCustomConnector": {
                 "connectionId": "[resourceId('Microsoft.Web/connections', variables('playbook7-RubrikcustomconnectorConnectionName'))]",
                 "connectionName": "[variables('playbook7-RubrikcustomconnectorConnectionName')]",
-                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', parameters('workspace-location'), '/customApis/Rubrikcustomconnector')]"
+                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/customApis/', parameters('playbook7-Rubrik Connector name'))]"
               },
               "keyvault": {
                 "connectionId": "[resourceId('Microsoft.Web/connections', variables('playbook7-KeyvaultConnectionName'))]",
@@ -8917,7 +8947,7 @@
     {
       "properties": {
         "provisioningState": "Succeeded",
-        "state": "Disabled",
+        "state": "Enabled",
         "definition": {
           "$schema": "https://schema.@{variables('azureManagementUrl')}/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
           "contentVersion": "1.0.0.0",
@@ -9230,7 +9260,7 @@
                               "host": {
                                 "triggerName": "manual",
                                 "workflow": {
-                                  "id": "/subscriptions/ec3e5f16-67b5-40aa-9289-23311c95451c/resourceGroups/RubrikIntegration_22926/providers/Microsoft.Logic/workflows/RubrikPollAsyncResult"
+                                  "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Logic/workflows/RubrikPollAsyncResult')]"
                                 }
                               }
                             }
@@ -9365,7 +9395,7 @@
                     "and": [
                       {
                         "contains": [
-                          "8",
+                          "@{body('List_all_Snapshots')}",
                           "errors"
                         ]
                       }
@@ -9933,7 +9963,7 @@
                                                   "host": {
                                                     "triggerName": "manual",
                                                     "workflow": {
-                                                      "id": "/subscriptions/ec3e5f16-67b5-40aa-9289-23311c95451c/resourceGroups/RubrikIntegration_22926/providers/Microsoft.Logic/workflows/RubrikPollAsyncResult"
+                                                      "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Logic/workflows/RubrikPollAsyncResult')]"
                                                     }
                                                   }
                                                 }
@@ -10466,7 +10496,7 @@
                 "host": {
                   "triggerName": "manual",
                   "workflow": {
-                    "id": "/subscriptions/ec3e5f16-67b5-40aa-9289-23311c95451c/resourceGroups/RubrikIntegration_22926/providers/Microsoft.Logic/workflows/RubrikIOCScan"
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Logic/workflows/RubrikIOCScan')]"
                   }
                 }
               }
@@ -10531,7 +10561,7 @@
               "RubrikCustomConnector": {
                 "connectionId": "[resourceId('Microsoft.Web/connections', variables('playbook8-RubrikcustomconnectorConnectionName'))]",
                 "connectionName": "[variables('playbook8-RubrikcustomconnectorConnectionName')]",
-                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', parameters('workspace-location'), '/customApis/Rubrikcustomconnector')]"
+                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/customApis/', parameters('playbook8-Rubrik Connector name'))]"
               },
               "keyvault": {
                 "connectionId": "[resourceId('Microsoft.Web/connections', variables('playbook8-KeyvaultConnectionName'))]",
@@ -10606,7 +10636,7 @@
     {
       "properties": {
         "provisioningState": "Succeeded",
-        "state": "Disabled",
+        "state": "Enabled",
         "definition": {
           "$schema": "https://schema.@{variables('azureManagementUrl')}/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
           "contentVersion": "1.0.0.0",
@@ -11246,7 +11276,7 @@
                               "host": {
                                 "triggerName": "manual",
                                 "workflow": {
-                                  "id": "/subscriptions/ec3e5f16-67b5-40aa-9289-23311c95451c/resourceGroups/RubrikIntegration_22926/providers/Microsoft.Logic/workflows/RubrikPollAsyncResult"
+                                  "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Logic/workflows/RubrikPollAsyncResult')]"
                                 }
                               }
                             }
@@ -11809,7 +11839,7 @@
                                     "host": {
                                       "triggerName": "manual",
                                       "workflow": {
-                                        "id": "/subscriptions/ec3e5f16-67b5-40aa-9289-23311c95451c/resourceGroups/RubrikIntegration_22926/providers/Microsoft.Logic/workflows/RubrikPollAsyncResult"
+                                        "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Logic/workflows/RubrikPollAsyncResult')]"
                                       }
                                     }
                                   }
@@ -14144,7 +14174,7 @@
                 "host": {
                   "triggerName": "manual",
                   "workflow": {
-                    "id": "/subscriptions/ec3e5f16-67b5-40aa-9289-23311c95451c/resourceGroups/RubrikIntegration_22926/providers/Microsoft.Logic/workflows/RubrikIOCScan"
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Logic/workflows/RubrikIOCScan')]"
                   }
                 }
               }
@@ -14201,7 +14231,7 @@
               "RubrikCustomConnector": {
                 "connectionId": "[resourceId('Microsoft.Web/connections', variables('playbook9-RubrikcustomconnectorConnectionName'))]",
                 "connectionName": "[variables('playbook9-RubrikcustomconnectorConnectionName')]",
-                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', parameters('workspace-location'), '/customApis/Rubrikcustomconnector')]"
+                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/customApis/', parameters('playbook9-Rubrik Connector name'))]"
               },
               "keyvault": {
                 "connectionId": "[resourceId('Microsoft.Web/connections', variables('playbook9-KeyvaultConnectionName'))]",

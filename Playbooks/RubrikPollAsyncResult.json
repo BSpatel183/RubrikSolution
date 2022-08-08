@@ -25,6 +25,13 @@
         "PlaybookName":  {
             "defaultValue":  "RubrikPollAsyncResult",
             "type":  "string"
+        },
+        "Rubrik Connector name": {
+            "defaultValue": "RubrikCustomConnector",
+            "type": "String",
+            "metadata": {
+                "description": "Rubrik Custom Connector name"
+            }
         }
     },
     "variables":  {
@@ -733,7 +740,7 @@
                             "RubrikCustomConnector":  {
                                 "connectionId":  "[resourceId('Microsoft.Web/connections', variables('RubrikcustomconnectorConnectionName'))]",
                                 "connectionName":  "[variables('RubrikcustomconnectorConnectionName')]",
-                                "id":  "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/customApis/Rubrikcustomconnector')]"
+                                "id":  "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/customApis/', parameters('Rubrik Connector name'))]"
                             },
                             "keyvault":  {
                                 "connectionId":  "[resourceId('Microsoft.Web/connections', variables('KeyvaultConnectionName'))]",
@@ -771,7 +778,7 @@
                 "customParameterValues":  {
                 },
                 "api":  {
-                    "id":  "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/customApis/Rubrikcustomconnector')]"
+                    "id":  "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/customApis/', parameters('Rubrik Connector name'))]"
                 }
             }
         },

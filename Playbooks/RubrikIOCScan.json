@@ -25,6 +25,13 @@
         "PlaybookName":  {
             "defaultValue":  "RubrikIOCScan",
             "type":  "string"
+        },
+        "Rubrik Connector name": {
+            "defaultValue": "RubrikCustomConnector",
+            "type": "String",
+            "metadata": {
+                "description": "Rubrik Custom Connector name"
+            }
         }
     },
     "variables":  {
@@ -35,7 +42,7 @@
         {
             "properties":  {
                 "provisioningState":  "Succeeded",
-                "state":  "Disabled",
+                "state":  "Enabled",
                 "definition":  {
                     "$schema":  "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
                     "contentVersion":  "1.0.0.0",
@@ -1869,7 +1876,7 @@
                                                                 {
                                                                     "not":  {
                                                                         "equals":  [
-                                                                            "",
+                                                                            "@triggerBody()?['TimeDelta']",
                                                                             "@null"
                                                                         ]
                                                                     }
@@ -2411,7 +2418,7 @@
                             "RubrikCustomConnector":  {
                                 "connectionId":  "[resourceId('Microsoft.Web/connections', variables('RubrikcustomconnectorConnectionName'))]",
                                 "connectionName":  "[variables('RubrikcustomconnectorConnectionName')]",
-                                "id":  "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/customApis/Rubrikcustomconnector')]"
+                                "id":  "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/customApis/', parameters('Rubrik Connector name'))]"
                             },
                             "keyvault":  {
                                 "connectionId":  "[resourceId('Microsoft.Web/connections', variables('KeyvaultConnectionName'))]",
@@ -2449,7 +2456,7 @@
                 "customParameterValues":  {
                 },
                 "api":  {
-                    "id":  "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/customApis/Rubrikcustomconnector')]"
+                    "id":  "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/customApis/', parameters('Rubrik Connector name'))]"
                 }
             }
         },

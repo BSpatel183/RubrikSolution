@@ -34,7 +34,7 @@
         {
             "properties":  {
                 "provisioningState":  "Succeeded",
-                "state":  "Disabled",
+                "state":  "Enabled",
                 "definition":  {
                     "$schema":  "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
                     "contentVersion":  "1.0.0.0",
@@ -417,7 +417,7 @@
                                 "host":  {
                                     "triggerName":  "manual",
                                     "workflow":  {
-                                        "id":  "/subscriptions/ec3e5f16-67b5-40aa-9289-23311c95451c/resourceGroups/RubrikIntegration_22926/providers/Microsoft.Logic/workflows/RubrikIOCScan"
+                                        "id":  "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Logic/workflows/RubrikIOCScan')]"
                                     }
                                 }
                             }
